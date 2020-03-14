@@ -10,7 +10,9 @@ export class HomeComponent implements OnInit {
   // showAlbum = true;
   // isTemplateDriven = false;
 activeTrainee: any;
-  academy = [{name: 'Ruky', image: 'ruky.jpg', complexion: 'Black', hobbies: ['Singing', 'Coding', 'Driving']},
+  academy = [
+    {name: 'Ruky', image: 'ruky.jpg', complexion: 'Black', hobbies: ['Singing', 'Coding', 'Driving']
+  },
             {name: 'Zino', image: 'Zino.jpg', complexion: 'Fair', hobbies: ['Football', 'Singing', 'Reading']},
             {name: 'Najeeb', image: 'Najeem.jpg', complexion: 'Chocolate', hobbies: ['Swimming', 'Dancing', 'Playing Football', ]},
             {name: 'Sarah', image: 'Sarah.jpg', complexion: 'Dark', hobbies: ['Coding', 'Dancing', 'Eating']},

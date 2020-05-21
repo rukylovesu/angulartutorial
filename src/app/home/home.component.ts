@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TraineeService } from './../service/trainee.service';
+import { ITrainee } from './../models';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +20,10 @@ activeTrainee: any;
             {name: 'Sarah', image: 'Sarah.jpg', complexion: 'Dark', hobbies: ['Coding', 'Dancing', 'Eating']},
             {name: 'Charles', image: 'charles.jpg', complexion: 'Chocolate', hobbies: ['Coding', 'Dancing', 'Eating']}
 ];
-constructor() { }
-
+constructor(private traineeServ: TraineeService) { }
+trainees: ITrainee[] = [];
   ngOnInit() {
+    this.trainees = this.traineeServ.getTrainees();
   }
 
 traineeListener(trainee) {

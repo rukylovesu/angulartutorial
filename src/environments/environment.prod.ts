@@ -1,6 +1,7 @@
 export const environment  = {
   production: true,
-  firebaseConfig :{
+  databaseURL: 'https://fintrakacademy2.firebaseio.com',
+  firebaseConfig : {
     apiKey: 'AIzaSyDFiB4tKNWImlCmTmM1GWWbJd59xMiK9qM',
     authDomain: 'fintrakacademy-fe8d4.firebaseapp.com',
     databaseURL: 'https://fintrakacademy-fe8d4.firebaseio.com',

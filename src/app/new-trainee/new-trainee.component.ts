@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITrainee } from './../models';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment.prod';
+import { TraineeService } from './../service/trainee.service';
 
 @Component({
   selector: 'app-new-trainee',
@@ -13,7 +14,9 @@ export class NewTraineeComponent implements OnInit {
   traineeForm: FormGroup;
   complexions = ['Black', 'Yellow', 'Chocolate', 'White'];
   genders = ['Male', 'Female', 'Others'];
-  constructor(private fb: FormBuilder, private httpclient: HttpClient) {
+
+  constructor(private fb: FormBuilder,
+              private traineeServ: TraineeService) {
       this.traineeForm = this.fb.group({
         name: ['', Validators.required],
         complexion: ['', Validators.required],
@@ -39,11 +42,20 @@ export class NewTraineeComponent implements OnInit {
       formData.hobbies = formData.hobbies.split(',');
     }
     const newFormData: ITrainee = formData;
+    // this.traineeServ.addTrainee(newFormData);
+    this.traineeServ.addTrainee(newFormData)
+    .subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
 
-    this.httpclient.post(environment.firebaseConfig.databaseURL + '/trainees.json', newFormData)
-   .subscribe(() => {},
-   () => {},
-   () => {});
+      });
+    form.reset();
+
   }
 
 }
